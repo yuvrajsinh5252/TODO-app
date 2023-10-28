@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" styleClass="root" stylesheets="@../style/Interface.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Javafx.LoginController">
+   <children>
+      <Pane prefHeight="450.0" prefWidth="300.0" styleClass="MainPane" stylesheets="@../style/Interface.css">
+         <children>
+            <Label layoutX="40.0" layoutY="183.0" prefHeight="85.0" prefWidth="221.0" text="TODO LIST" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="245.0" prefHeight="46.0" prefWidth="205.0" text="List yout task to get you more productive" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Label layoutX="363.0" layoutY="81.0" text="LOGIN">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="363.0" layoutY="260.0" prefHeight="35.0" prefWidth="200.0" promptText="Password" styleClass="pass">
+         <font>
+            <Font size="15.0" />
+         </font></PasswordField>
+      <TextField layoutX="363.0" layoutY="180.0" prefHeight="35.0" prefWidth="200.0" promptText="User Name" styleClass="user" stylesheets="@../style/Interface.css">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Button layoutX="413.0" layoutY="340.0" mnemonicParsing="false" onAction="#OnClicked" prefHeight="35.0" prefWidth="100.0" styleClass="LoginBtn" stylesheets="@../style/Interface.css" text="LOGIN" textAlignment="JUSTIFY">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Pane layoutX="563.0" prefHeight="39.0" prefWidth="37.0">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="84.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/png-transparent-computer-icons-button-close-angle-rectangle-logo-thumbnail-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

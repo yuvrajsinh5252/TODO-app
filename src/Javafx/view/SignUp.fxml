@@ -31,15 +31,15 @@
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <PasswordField fx:id="LoginPassword" layoutX="347.0" layoutY="161.0" prefHeight="35.0" prefWidth="200.0" promptText="Password" styleClass="pass">
+      <PasswordField fx:id="SignupPassword" layoutX="347.0" layoutY="161.0" prefHeight="35.0" prefWidth="200.0" promptText="Password" styleClass="pass">
          <font>
             <Font size="15.0" />
          </font></PasswordField>
-      <TextField fx:id="LoginUsername" layoutX="347.0" layoutY="102.0" prefHeight="35.0" prefWidth="200.0" promptText="User Name" styleClass="user" stylesheets="@../style/Interface.css">
+      <TextField fx:id="SignupUsername" layoutX="347.0" layoutY="102.0" prefHeight="35.0" prefWidth="200.0" promptText="User Name" styleClass="user" stylesheets="@../style/Interface.css">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Button fx:id="LoginButton" layoutX="397.0" layoutY="295.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" styleClass="LoginBtn" stylesheets="@../style/Interface.css" text="SIGN UP" textAlignment="JUSTIFY">
+      <Button fx:id="SignupButton" layoutX="397.0" layoutY="295.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" styleClass="LoginBtn" stylesheets="@../style/Interface.css" text="SIGN UP" textAlignment="JUSTIFY">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -59,12 +59,12 @@
          </cursor>
       </Pane>
       <Label layoutX="352.0" layoutY="361.0" prefHeight="17.0" prefWidth="133.0" text="Already have an account," />
-      <Button layoutX="476.0" layoutY="356.0" mnemonicParsing="false" styleClass="SginUpBtn" stylesheets="@../style/Interface.css" text="sign in">
+      <Button fx:id="LoginButton" layoutX="476.0" layoutY="356.0" mnemonicParsing="false" styleClass="SginUpBtn" stylesheets="@../style/Interface.css" text="sign in">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <PasswordField layoutX="347.0" layoutY="227.0" prefHeight="35.0" prefWidth="200.0" promptText="Confirm Password" styleClass="ConfirmPass" stylesheets="@../style/Interface.css">
+      <PasswordField fx:id="signupConf" layoutX="347.0" layoutY="222.0" prefHeight="35.0" prefWidth="200.0" promptText="Confirm Password" styleClass="ConfirmPass" stylesheets="@../style/Interface.css">
          <font>
             <Font size="15.0" />
          </font>

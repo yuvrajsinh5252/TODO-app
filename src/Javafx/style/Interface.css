@@ -1,10 +1,16 @@
-.pass, .user {
+.pass, .user, .ConfirmPass {
     -fx-background-color: transparent;
     -fx-border-color: black;
     -fx-border-width: 1px;
     -fx-border-width: 0 0 1 0;
     -fx-prompt-text-fill: #A9A9A9;
     -fx-text-fill: black;
+}
+
+.SginUpBtn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #18C27B;
+    -fx-border-color: transparent;
 }
 
 .pass:focused, .user:focused {

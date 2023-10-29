@@ -13,13 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class LoginController implements Initializable {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
     @FXML
     private ImageView Close;
 

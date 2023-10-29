@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller.AddItem">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" styleClass="TodoPage" stylesheets="@../style/Interface.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Javafx.Controller.AddItemController">
    <children>
-      <Label fx:id="Welcome" layoutX="230.0" layoutY="82.0" text="Welcome">
+      <Label layoutX="268.0" layoutY="9.0" prefHeight="36.0" prefWidth="71.0" text="Todo" textAlignment="JUSTIFY" textFill="#707070">
          <font>
-            <Font name="System Bold" size="32.0" />
+            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="75.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/Screenshot_2023-10-29_130245-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Additems" fitHeight="125.0" fitWidth="71.0" layoutX="140.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/8377219.png" />
+         </image>
+      </ImageView>
+      <JFXHamburger fx:id="hamburger" layoutX="17.0" layoutY="17.0" />
    </children>
 </AnchorPane>

@@ -25,7 +25,7 @@ public class DButils {
             try {
                 root = FXMLLoader.load(DButils.class.getResource(fxmlFile));
             } catch (IOException e) {
-                System.out.println("Error: " + e.getMessage());                
+                System.out.println("Error ChangeScene: " + e.getMessage());                
             }
         }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -41,7 +41,7 @@ public class DButils {
         ResultSet rs = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "root_pass");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "8)Kw(M%L34G9");
             PsCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
             PsCheckUserExists.setString(1, Username);
             rs = PsCheckUserExists.executeQuery();
@@ -58,7 +58,7 @@ public class DButils {
                 psInsert.setString(2, Password);
                 psInsert.executeUpdate();
                 System.out.println("User added");
-                changeScene(event, "view/AddItem.fxml", "Welcome", null);
+                changeScene(event, "view/Interface.fxml", "Welcome", null);
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -100,7 +100,7 @@ public class DButils {
         ResultSet rs = null;
         
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "root_pass");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "8)Kw(M%L34G9");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
             psCheckUserExists.setString(1, username);
             rs = psCheckUserExists.executeQuery();

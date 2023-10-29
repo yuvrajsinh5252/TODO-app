@@ -20,7 +20,6 @@ public class Main extends Application {
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("view/Interface.fxml"));
-            stage.setResizable(false);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {System.out.println("Error: " + e.getMessage());}

@@ -7,18 +7,23 @@
     -fx-text-fill: black;
 }
 
+.TodoPage {
+    -fx-background-color: #F5F5F5;
+    -fx-background-radius: 10;
+}
+
 .SginUpBtn {
     -fx-background-color: transparent;
-    -fx-text-fill: #18C27B;
+    -fx-text-fill: #518AFF;
     -fx-border-color: transparent;
 }
 
 .pass:focused, .user:focused {
-    -fx-border-color: #18C27B;
+    -fx-border-color: #518AFF;
 }
 
 .LoginBtn {
-    -fx-background-color: #18C27B;
+    -fx-background-color: #518AFF;
     -fx-text-fill: white;
     -fx-background-radius: 30;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 3);
@@ -29,5 +34,5 @@
 }
 
 .MainPane {
-    -fx-background-color: linear-gradient(to bottom left, #71D9B6, #18C27B);
+    -fx-background-color: linear-gradient(to bottom left, #518AFF, #518AFF);
 }

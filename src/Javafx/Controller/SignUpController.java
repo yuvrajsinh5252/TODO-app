@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -45,7 +46,13 @@ public class SignUpController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 if (!SignupUsername.getText().trim().isEmpty() && !SignupPassword.getText().trim().isEmpty()) {
-                    DButils.SignUpUser(event, SignupUsername.getText(), SignupPassword.getText());
+                    if (SignupPassword.getText().equals(signupConf.getText())) {
+                        DButils.SignUpUser(event, SignupUsername.getText(), SignupPassword.getText());
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Passwords do not match");
+                        alert.showAndWait();
+                    }
                 } else {
                     System.out.println("Error: Empty fields");
                 }

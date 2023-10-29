@@ -14,7 +14,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="75.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="EmptyTaskImage" fitHeight="200.0" fitWidth="200.0" layoutX="75.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assets/Screenshot_2023-10-29_130245-removebg-preview.png" />
          </image>
@@ -25,5 +25,6 @@
          </image>
       </ImageView>
       <JFXHamburger fx:id="hamburger" layoutX="17.0" layoutY="17.0" />
+      <Label fx:id="user" layoutX="18.0" layoutY="61.0" prefHeight="17.0" prefWidth="65.0" styleClass="user" text="Label" visible="false" />
    </children>
 </AnchorPane>

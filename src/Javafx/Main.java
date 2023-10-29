@@ -16,9 +16,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage.initStyle(StageStyle.UNDECORATED);
+        // stage.initStyle(StageStyle.UNDECORATED);
         Parent root;
         try {
+            root = FXMLLoader.load(getClass().getResource("view/AddItem.fxml"));
             root = FXMLLoader.load(getClass().getResource("view/Interface.fxml"));
             stage.setScene(new Scene(root));
             stage.show();

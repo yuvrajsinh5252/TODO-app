@@ -1,8 +1,7 @@
 .pass, .user, .ConfirmPass {
     -fx-background-color: transparent;
     -fx-border-color: black;
-    -fx-border-width: 1px;
-    -fx-border-width: 0 0 1 0;
+    -fx-border-width: 0 0 1.3 0;
     -fx-prompt-text-fill: #A9A9A9;
     -fx-text-fill: black;
 }
@@ -22,11 +21,16 @@
     -fx-border-color: #518AFF;
 }
 
-.LoginBtn {
+.LoginBtn, .saveBtn {
     -fx-background-color: #518AFF;
     -fx-text-fill: white;
     -fx-background-radius: 30;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 3);
+}
+
+.saveBtn {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
 }
 
 .LoginBtn:hover {

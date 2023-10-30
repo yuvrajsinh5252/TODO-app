@@ -26,7 +26,7 @@
          </image>
       </ImageView>
       <JFXHamburger fx:id="hamburger" layoutX="17.0" layoutY="17.0" />
-      <Label fx:id="user" layoutX="18.0" layoutY="61.0" prefHeight="17.0" prefWidth="65.0" styleClass="user" text="Label" visible="false" />
+      <Label fx:id="user" layoutX="63.0" layoutY="18.0" prefHeight="20.0" prefWidth="109.0" styleClass="user" stylesheets="@../style/Interface.css" text="Username" />
       <ScrollPane fx:id="TaskScroll" layoutY="61.0" prefHeight="365.0" prefWidth="350.0" styleClass="scroll" stylesheets="@../style/Interface.css" />
    </children>
 </AnchorPane>

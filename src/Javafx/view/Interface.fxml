@@ -35,7 +35,7 @@
          <font>
             <Font size="15.0" />
          </font></PasswordField>
-      <TextField fx:id="LoginUsername" layoutX="347.0" layoutY="149.0" prefHeight="35.0" prefWidth="200.0" promptText="User Name" styleClass="user" stylesheets="@../style/Interface.css">
+      <TextField fx:id="LoginUsername" layoutX="347.0" layoutY="149.0" prefHeight="35.0" prefWidth="200.0" promptText="User Name" styleClass="userName" stylesheets="@../style/Interface.css">
          <font>
             <Font size="15.0" />
          </font></TextField>

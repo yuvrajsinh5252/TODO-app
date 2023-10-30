@@ -19,7 +19,6 @@ public class Main extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         Parent root;
         try {
-            // root = FXMLLoader.load(getClass().getResource("view/AddItem.fxml"));
             root = FXMLLoader.load(getClass().getResource("view/Interface.fxml"));
             stage.setScene(new Scene(root));
             stage.show();

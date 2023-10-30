@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 public class TaskController implements Initializable {
 
@@ -29,13 +30,17 @@ public class TaskController implements Initializable {
     @FXML
     private TextField time;
 
+    @FXML
+    private Label UserTask;
+
     @Override
     public void initialize(URL loaction, ResourceBundle resources) {
         SaveBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 String username = ((Label) root.lookup(".UserTask")).getText();
-                // DButils.SaveToDB(event, username, TaskText.getText(), description.getText(), time.getText());
+                UserTask.setText(username);
+                DButils.SaveToDB(event, username, TaskText.getText(), description.getText(), time.getText());
                 DButils.UpdateAddItemFXML(event, username);
             }
         });

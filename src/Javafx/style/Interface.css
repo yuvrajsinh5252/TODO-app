@@ -1,4 +1,4 @@
-.pass, .user, .ConfirmPass {
+.pass, .userName, .ConfirmPass {
     -fx-background-color: transparent;
     -fx-border-color: black;
     -fx-border-width: 0 0 1.3 0;
@@ -9,6 +9,13 @@
 .TodoPage {
     -fx-background-color: #FCFCFC;
     -fx-background-radius: 30;
+}
+
+.user {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 15px;
+    -fx-font-family: "Segoe UI";
 }
 
 .SginUpBtn {

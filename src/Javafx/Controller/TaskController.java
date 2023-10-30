@@ -37,7 +37,6 @@ public class TaskController implements Initializable {
                 String username = ((Label) root.lookup(".UserTask")).getText();
                 // DButils.SaveToDB(event, username, TaskText.getText(), description.getText(), time.getText());
                 DButils.UpdateAddItemFXML(event, username);
-                // DButils.changeScene(event, "view/AddItem.fxml", "Add Item", username);
             }
         });
     }

@@ -1,9 +1,10 @@
 package Javafx;
 
 import java.sql.*;
-import java.io.IOException;
 
-import javafx.concurrent.Task;
+import Javafx.Controller.ThumbController;
+
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class DButils {
@@ -106,6 +108,9 @@ public class DButils {
     }
 
     public static void LoginUser (ActionEvent event, String username, String Password) {
+        System.out.println("Username: " + username);
+        System.out.println("Password: " + Password);
+
         Connection connection = null;
         PreparedStatement psCheckUserExists = null;
         ResultSet rs = null;
@@ -120,7 +125,7 @@ public class DButils {
                 while (rs.next()) { 
                     if (rs.getString("password").equals(Password)) {
                         System.out.println("User logged in");
-                        changeScene(event, "view/AddItem.fxml", "Add Item", username);
+                        UpdateAddItemFXML(event, username);
                     } else {
                         System.out.println("Wrong password");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -175,42 +180,36 @@ public class DButils {
             psCheckUserExists.setString(1, username);
             rs = psCheckUserExists.executeQuery();
 
-            int count = 0;
-
             if (rs.isBeforeFirst()) {
                 FXMLLoader loader = new FXMLLoader(DButils.class.getResource("view/AddItem.fxml"));
                 Parent root = loader.load();
 
-                ScrollPane scroll = new ScrollPane();
-                scroll.setPrefSize(310, 280);
-                scroll.setLayoutX(20);
-                scroll.setLayoutY(90);
-
-                Pane pane1 = new Pane();
+                ScrollPane scroll = (ScrollPane) root.lookup("#TaskScroll");
+                VBox Vbox = new VBox();
+                Vbox.setStyle("-fx-background-color: #ffffff; -fx-padding: 10 10 10 70;-fx-spacing: 10px;");
 
                 while (rs.next()) {
                     Label TASK = new Label(rs.getString("task"));
+                    TASK.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-padding: 0 0 0 10;");
                     Label DESCRIPTION = new Label(rs.getString("description"));
+                    DESCRIPTION.setStyle("-fx-font-size: 15px; -fx-text-fill: #000000; -fx-padding: 0 0 0 10;");
                     Label TIME = new Label(rs.getString("time"));
+                    TIME.setStyle("-fx-font-size: 15px; -fx-text-fill: #000000; -fx-padding: 0 0 0 10;");
 
-                    Pane pane = new HBox();
-                    pane.setPrefHeight(40);
-                    pane.setPrefWidth(200);
-                    pane.setStyle("-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 1px; -fx-border-radius: 5px;");
-                    pane.getChildren().add(TASK);
-                    pane.getChildren().add(DESCRIPTION);
-                    pane.getChildren().add(TIME);
+                    HBox Hbox = new HBox();
+                    Hbox.setPrefHeight(100);
+                    Hbox.setPrefWidth(200);
+                    
+                    Hbox.getChildren().add(TASK);
+                    Hbox.getChildren().add(DESCRIPTION);
+                    Hbox.getChildren().add(TIME);
 
-                    pane.setLayoutX(55);
-                    pane.setLayoutY(10 + count);
+                    Hbox.setStyle("-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 1px");
 
-                    count += 50;
-                    pane1.getChildren().add(pane);
+                    Vbox.getChildren().add(Hbox);
                 }
                     
-                scroll.setStyle("-fx-background-color: Transparent; -fx-border-color: #000000; -fx-border-width: 0 0 0 0;");
-                scroll.setContent(pane1);
-                ((Pane) root).getChildren().add(scroll);
+                scroll.setContent(Vbox);
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);

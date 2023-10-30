@@ -1,9 +1,6 @@
 package Javafx;
 
 import java.sql.*;
-
-import Javafx.Controller.ThumbController;
-
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +8,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -36,9 +36,15 @@ public class DButils {
                 System.out.println("Error ChangeScene: " + e.getMessage());                
             }
         }
-        Label label = (Label) root.lookup(".user");
+        Label label = new Label();
         if (Username != null && title.equals("Add Item")) {
+            label = (Label) root.lookup(".user");
             label.setText(Username);
+        }
+
+        if (title == "Add Item") {
+            ScrollPane scroll = (ScrollPane) root.lookup("#TaskScroll");
+            scroll.setVisible(false);
         }
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -186,28 +192,47 @@ public class DButils {
 
                 ScrollPane scroll = (ScrollPane) root.lookup("#TaskScroll");
                 VBox Vbox = new VBox();
-                Vbox.setStyle("-fx-background-color: #ffffff; -fx-padding: 10 10 10 70;-fx-spacing: 10px;");
+                scroll.setStyle("-fx-background-color: #FCFCFC; -fx-background: transparent; -fx-border-color: transparent;");
+                Vbox.setStyle("-fx-background-color: #FCFCFC; -fx-padding: 10 10 10 25;-fx-spacing: 10px;");
 
                 while (rs.next()) {
+                    HBox rootThumb = new HBox();
+
                     Label TASK = new Label(rs.getString("task"));
-                    TASK.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-padding: 0 0 0 10;");
                     Label DESCRIPTION = new Label(rs.getString("description"));
-                    DESCRIPTION.setStyle("-fx-font-size: 15px; -fx-text-fill: #000000; -fx-padding: 0 0 0 10;");
                     Label TIME = new Label(rs.getString("time"));
-                    TIME.setStyle("-fx-font-size: 15px; -fx-text-fill: #000000; -fx-padding: 0 0 0 10;");
 
-                    HBox Hbox = new HBox();
-                    Hbox.setPrefHeight(100);
-                    Hbox.setPrefWidth(200);
+                    TASK.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
+                    DESCRIPTION.setStyle("-fx-font-size: 15px; -fx-text-fill: #808080;");
+                    TIME.setStyle("-fx-font-size: 15px; -fx-text-fill: #808080;");
+
+                    VBox data = new VBox();
+                    data.setPrefHeight(60);
+                    data.setPrefWidth(200);
                     
-                    Hbox.getChildren().add(TASK);
-                    Hbox.getChildren().add(DESCRIPTION);
-                    Hbox.getChildren().add(TIME);
+                    data.getChildren().add(TASK);
+                    data.getChildren().add(DESCRIPTION);
+                    data.getChildren().add(TIME);
 
-                    Hbox.setStyle("-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 1px");
+                    rootThumb.setStyle("-fx-background-color: #ffffff; -fx-border-color: transparent; -fx-border-radius: 10px; -fx-padding: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-background-radius: 10;");
 
-                    Vbox.getChildren().add(Hbox);
+                    CheckBox check = new CheckBox();
+                    ImageView thumb = new ImageView();
+                    thumb.setImage(new Image("Javafx/Assets/Thumb.png"));
+
+                    check.setStyle("-fx-padding: 20px");
+                    thumb.setFitHeight(30);
+                    thumb.setFitWidth(30);
+
+                    rootThumb.getChildren().add(data);
+                    rootThumb.getChildren().add(check);
+                    rootThumb.getChildren().add(thumb);
+
+                    Vbox.getChildren().add(rootThumb);
                 }
+
+                scroll.setHbarPolicy(ScrollBarPolicy.NEVER);
+                scroll.setVbarPolicy(ScrollBarPolicy.NEVER);
                     
                 scroll.setContent(Vbox);
                 Scene scene = new Scene(root);
@@ -215,6 +240,7 @@ public class DButils {
                 stage.setScene(scene);
                 stage.show();
             } else {
+                changeScene(event, "view/AddItem.fxml", "Add Item", username);
                 System.out.println("No tasks");
             }
         } catch (Exception e) {
@@ -278,5 +304,9 @@ public class DButils {
                 }
             }
         }
+    }
+
+    public static void DeleteTask() {
+        
     }
 }

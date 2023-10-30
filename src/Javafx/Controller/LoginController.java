@@ -40,7 +40,7 @@ public class LoginController implements Initializable {
         SignUpBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DButils.changeScene(event, "View/SignUp.fxml", "Sign Up", null);
+                DButils.changeScene(event, "view/SignUp.fxml", "Sign Up", null);
             }
         });
 

@@ -1,7 +1,5 @@
 package Javafx.Controller;
 
-import java.util.List;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;

@@ -1,6 +1,7 @@
 package Javafx;
 
 import java.sql.*;
+import java.util.HashMap;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -158,7 +159,8 @@ public class DButils {
             if (connection != null) {
                 try {
                     connection.close();
-                } catch (SQLException e) {
+                }
+                catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
@@ -176,6 +178,8 @@ public class DButils {
             psCheckUserExists.setString(1, username);
             rs = psCheckUserExists.executeQuery();
 
+            HashMap<String, String> getAllCheck = new HashMap<String, String>();
+
             if (rs.isBeforeFirst()) {
                 FXMLLoader loader = new FXMLLoader(DButils.class.getResource("view/AddItem.fxml"));
                 Parent root = loader.load();
@@ -189,6 +193,10 @@ public class DButils {
                 Vbox.setStyle("-fx-background-color: #FCFCFC; -fx-padding: 10 10 10 20;-fx-spacing: 10px;");
 
                 while (rs.next()) {
+                    if (rs.getString("check") != null) {
+                        getAllCheck.put(rs.getString("task_id"), rs.getString("check"));
+                    } 
+
                     HBox rootThumb = new HBox();
 
                     Label TASK = new Label(rs.getString("task"));
@@ -199,8 +207,6 @@ public class DButils {
                     DESCRIPTION.setStyle("-fx-font-size: 15px; -fx-text-fill: #808080;");
                     TIME.setStyle("-fx-font-size: 15px; -fx-text-fill: #808080;");
 
-                    rootThumb.setStyle("-fx-background-color: #ffffff; -fx-border-color: transparent; -fx-border-radius: 10px; -fx-padding: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-background-radius: 10;");
-                    
                     VBox data = new VBox();
                     data.setPrefHeight(60);
                     data.setPrefWidth(200);
@@ -215,12 +221,17 @@ public class DButils {
                     thumb.setId("thumb" + " " + rs.getString("task_id"));
                     System.out.println(thumb.getId());
 
-                    check.setImage(new Image("Javafx/Assets/Check.png"));
+                    if (getAllCheck.get(rs.getString("task_id")) != null) {
+                        check.setImage(new Image("Javafx/Assets/Check.png"));
+                        rootThumb.getStyleClass().add("checked");
+                    } 
+                    else {
+                        check.setImage(new Image("Javafx/Assets/Uncheck.png"));
+                        rootThumb.getStyleClass().add("unchecked");
+                    }
                     thumb.setImage(new Image("Javafx/Assets/Thumb.png"));
                     thumb.getStyleClass().add("thumb");
-                    thumb.setStyle("-fx-cursor: hand;");
                     check.getStyleClass().add("check");
-                    check.setStyle("-fx-cursor: hand;");
 
                     check.setFitHeight(40);
                     check.setFitWidth(40);
@@ -229,9 +240,13 @@ public class DButils {
 
                     HBox checkBox = new HBox();
                     HBox DeleteBox = new HBox();
+                    checkBox.setStyle("-fx-cursor: hand;");
+                    DeleteBox.setStyle("-fx-cursor: hand;");
 
                     checkBox.getChildren().add(check);
                     DeleteBox.getChildren().add(thumb);
+                    checkBox.setId("checkBox");
+                    DeleteBox.setId("DeleteBox");
 
                     checkBox.alignmentProperty().set(javafx.geometry.Pos.CENTER);
                     DeleteBox.alignmentProperty().set(javafx.geometry.Pos.CENTER);
@@ -247,23 +262,34 @@ public class DButils {
 
                 scroll.setOnMouseClicked(e -> {
                     Node clickedNode = e.getPickResult().getIntersectedNode();
-                    if (clickedNode instanceof ImageView) {
+                    if (clickedNode instanceof HBox) {
                         String id = clickedNode.getId();
+                        System.out.println(id);
 
-                        if (id.contains("check")) {
-                            ImageView check = (ImageView) clickedNode;
+                        if (id.contains("checkBox")) {
+                            HBox checkBox = (HBox) clickedNode;
+                            ImageView check = (ImageView) checkBox.getChildren().get(0);
                             Node parent = check.getParent().getParent();
 
                             if (check.getImage().getUrl().contains("Check.png")) {
+                                updateCheckColumn(null, Integer.parseInt(check.getId().split(" ")[1]));
+                                getAllCheck.put(check.getId().split(" ")[1], "1");
+                                parent.getStyleClass().remove("checked");
+                                parent.getStyleClass().add("unchecked");
                                 check.setImage(new Image("Javafx/Assets/Uncheck.png"));
-                                parent.setStyle("-fx-background-color: #C2C2C2; -fx-border-color: transparent; -fx-border-radius: 10px; -fx-padding: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-background-radius: 10;");
                             } else {
+                                updateCheckColumn("1", Integer.parseInt(check.getId().split(" ")[1]));
+                                getAllCheck.put(check.getId().split(" ")[1], null);
+                                parent.getStyleClass().remove("unchecked");
+                                parent.getStyleClass().add("checked");
                                 check.setImage(new Image("Javafx/Assets/Check.png"));
-                                parent.setStyle("-fx-background-color: #ffffff; -fx-border-color: transparent; -fx-border-radius: 10px; -fx-padding: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-background-radius: 10;");
                             }
-                        } else if (id.contains("thumb")) {
-                            DeleteTask(username, Integer.parseInt(id.split(" ")[1]));
-                            Vbox.getChildren().remove(clickedNode.getParent().getParent());
+                        } else if (id.contains("DeleteBox")) {
+                            HBox DeleteBox = (HBox) clickedNode;
+                            ImageView thumb = (ImageView) DeleteBox.getChildren().get(0);
+
+                            DeleteTask(username, Integer.parseInt(thumb.getId().split(" ")[1]));
+                            Vbox.getChildren().remove(clickedNode.getParent());
                         }
                     }
 
@@ -324,6 +350,37 @@ public class DButils {
         }
     }
 
+    public static void updateCheckColumn(String completed, int taskId) {
+        Connection connection = null;
+        PreparedStatement psUpdate = null;
+
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "8)Kw(M%L34G9");
+            psUpdate = connection.prepareStatement("UPDATE task SET `check` = ? WHERE task_id = ?");
+            psUpdate.setString(1, completed);
+            psUpdate.setInt(2, taskId);
+            psUpdate.executeUpdate();
+            System.out.println("Check column updated");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (psUpdate != null) {
+                try {
+                    psUpdate.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public static void SaveToDB(ActionEvent event, String username, String TaskText, String description, String time) {
         Connection connection = null;
         PreparedStatement psCheckUserExists = null;
@@ -358,10 +415,6 @@ public class DButils {
                 }
             }
         }
-    }
-
-    public static void UpdateTaskCompleted (String Username, int TaskId, boolean Completed) {
-
     }
 
     public static void DeleteTask(String username, int taskId) {

@@ -47,3 +47,11 @@
 .MainPane {
     -fx-background-color: linear-gradient(to bottom left, #518AFF, #518AFF);
 }
+
+.unchecked {
+    -fx-background-color: #ffffff; -fx-border-color: transparent; -fx-border-radius: 10px; -fx-padding: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-background-radius: 10;
+}
+
+.checked {
+    -fx-background-color: #C2C2C2; -fx-border-color: transparent; -fx-border-radius: 10px; -fx-padding: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-background-radius: 10;
+}

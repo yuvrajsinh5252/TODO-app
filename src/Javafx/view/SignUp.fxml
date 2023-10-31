@@ -59,7 +59,7 @@
          </cursor>
       </Pane>
       <Label layoutX="352.0" layoutY="361.0" prefHeight="17.0" prefWidth="133.0" text="Already have an account," />
-      <Button fx:id="LoginButton" layoutX="476.0" layoutY="356.0" mnemonicParsing="false" styleClass="SginUpBtn" stylesheets="@../style/Interface.css" text="sign in">
+      <Button fx:id="LoginButton" layoutX="479.0" layoutY="356.0" mnemonicParsing="false" styleClass="SginUpBtn" stylesheets="@../style/Interface.css" text="Sign In">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

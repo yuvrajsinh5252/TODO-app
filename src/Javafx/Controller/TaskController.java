@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import Javafx.DButils;
+import Javafx.updateui;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -45,7 +46,7 @@ public class TaskController implements Initializable {
 
                 if (!TaskText.getText().isEmpty() && !description.getText().isEmpty() && !time.getText().isEmpty()) {
                     DButils.SaveToDB(event, username, TaskText.getText(), description.getText(), time.getText());
-                    DButils.UpdateAddItemFXML(event, username);
+                    updateui.UpdateAddItemFXML(event, username);
                 }
             }
         });
@@ -54,7 +55,7 @@ public class TaskController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 String username = ((Label) root.lookup(".UserTask")).getText();
-                DButils.UpdateAddItemFXML(event, username);
+                updateui.UpdateAddItemFXML(event, username);
             }
         });
     }

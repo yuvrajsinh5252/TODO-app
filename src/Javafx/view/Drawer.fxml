@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="171.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Javafx.Controller.DrawerController">
+   <children>
+      <ImageView fitHeight="163.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/5e819a5ce865476b73087fd1276e7c3e.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="logout" prefHeight="61.0" prefWidth="171.0" style="-fx-background-color: #CFCFCF;" styleClass="logout" stylesheets="@../style/Interface.css" text="Logout">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</VBox>

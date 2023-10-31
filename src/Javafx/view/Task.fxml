@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -30,5 +33,17 @@
             <Font size="16.0" />
          </font></JFXButton>
       <Label fx:id="UserTask" layoutX="20.0" layoutY="20.0" styleClass="UserTask" text="Label" visible="false" />
+      <JFXButton fx:id="BackTask" layoutX="14.0" layoutY="16.0" prefHeight="54.0" prefWidth="69.0" style="-fx-background-color: transparetn;">
+         <graphic>
+            <ImageView fitHeight="47.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/pngtree-back-vector-icon-png-image_470452-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

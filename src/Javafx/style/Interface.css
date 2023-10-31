@@ -12,10 +12,12 @@
 }
 
 .user {
-    -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-size: 15px;
     -fx-font-family: "Segoe UI";
+    -fx-border-color: black;
+    -fx-border-radius: 30;
+    -fx-padding: 5px;
 }
 
 .SginUpBtn {

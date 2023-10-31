@@ -32,6 +32,9 @@ public class TaskController implements Initializable {
     @FXML
     private Label UserTask;
 
+    @FXML
+    private JFXButton BackTask;
+
     @Override
     public void initialize(URL loaction, ResourceBundle resources) {
         SaveBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -39,7 +42,18 @@ public class TaskController implements Initializable {
             public void handle(ActionEvent event) {
                 String username = ((Label) root.lookup(".UserTask")).getText();
                 UserTask.setText(username);
-                DButils.SaveToDB(event, username, TaskText.getText(), description.getText(), time.getText());
+
+                if (!TaskText.getText().isEmpty() && !description.getText().isEmpty() && !time.getText().isEmpty()) {
+                    DButils.SaveToDB(event, username, TaskText.getText(), description.getText(), time.getText());
+                    DButils.UpdateAddItemFXML(event, username);
+                }
+            }
+        });
+
+        BackTask.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String username = ((Label) root.lookup(".UserTask")).getText();
                 DButils.UpdateAddItemFXML(event, username);
             }
         });

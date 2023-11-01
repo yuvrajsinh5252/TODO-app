@@ -1,6 +1,7 @@
 package Javafx;
 
 import java.sql.*;
+import Javafx.Connection.DBConnection;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -19,15 +20,11 @@ public class DButils {
             try {
                 FXMLLoader loader = new FXMLLoader(DButils.class.getResource(fxmlFile));
                 root = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            } catch (IOException e) {e.printStackTrace();}
         } else {
             try {
                 root = FXMLLoader.load(DButils.class.getResource(fxmlFile));
-            } catch (IOException e) {
-                System.out.println("Error ChangeScene: " + e.getMessage());                
-            }
+            } catch (IOException e) {e.printStackTrace();}
         }
         if (title == "Add Item") {
             ScrollPane scroll = (ScrollPane) root.lookup("#TaskScroll");
@@ -36,7 +33,9 @@ public class DButils {
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
+        stage.setScene(scene);
         stage.show();
     }    
 
@@ -47,13 +46,13 @@ public class DButils {
         ResultSet rs = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "8)Kw(M%L34G9");
+            DBConnection Connection = new DBConnection();
+            connection = Connection.getConnection();
             PsCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
             PsCheckUserExists.setString(1, Username);
             rs = PsCheckUserExists.executeQuery();
 
             if (rs.isBeforeFirst()) {
-                System.out.println("User already exists");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("You cannot use this username");
@@ -63,39 +62,26 @@ public class DButils {
                 psInsert.setString(1, Username);
                 psInsert.setString(2, Password);
                 psInsert.executeUpdate();
-                System.out.println("User added");
                 changeScene(event, "view/Interface.fxml", "Welcome", null);
             }
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
         } finally {
             if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    System.out.println("Error: " + e.getMessage());
-                }
+                try {rs.close();}
+                catch (SQLException e) {e.printStackTrace();}
             } 
             if (PsCheckUserExists != null) {
-                try {
-                    PsCheckUserExists.close();
-                } catch (SQLException e) {
-                    System.out.println("Error: " + e.getMessage());
-                }
+                try {PsCheckUserExists.close();}
+                catch (SQLException e) {e.printStackTrace();}
             }
             if (psInsert != null) {
-                try {
-                    psInsert.close();
-                } catch (SQLException e) {
-                    System.out.println("Error: " + e.getMessage());
-                }
+                try {psInsert.close();}
+                catch (SQLException e) {e.printStackTrace();}
             }
             if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    System.out.println("Error: " + e.getMessage());
-                }
+                try {connection.close();}
+                catch (SQLException e) {e.printStackTrace();}
             }
         }
     }
@@ -106,7 +92,8 @@ public class DButils {
         ResultSet rs = null;
         
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "8)Kw(M%L34G9");
+            DBConnection Connection = new DBConnection();
+            connection = Connection.getConnection();
             psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
             psCheckUserExists.setString(1, username);
             rs = psCheckUserExists.executeQuery();
@@ -114,10 +101,8 @@ public class DButils {
             if (rs.isBeforeFirst()) {
                 while (rs.next()) { 
                     if (rs.getString("password").equals(Password)) {
-                        System.out.println("User logged in");
-                        updateui.UpdateAddItemFXML(event, username);
+                        UpdateUI.UpdateAddItemFXML(event, username);
                     } else {
-                        System.out.println("Wrong password");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error");
                         alert.setContentText("Wrong password");
@@ -125,7 +110,6 @@ public class DButils {
                     }
                 }
             } else {
-                System.out.println("User does not exist");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setContentText("User does not exist");
@@ -136,26 +120,16 @@ public class DButils {
             e.printStackTrace();
         } finally {
             if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                try {rs.close();}
+                catch (SQLException e) {e.printStackTrace();}
             } 
             if (psCheckUserExists != null) {
-                try {
-                    psCheckUserExists.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                try {psCheckUserExists.close();}
+                catch (SQLException e) {e.printStackTrace();}
             }
             if (connection != null) {
-                try {
-                    connection.close();
-                }
-                catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                try {connection.close();}   
+                catch (SQLException e) {e.printStackTrace();}
             }
         }
     }
@@ -165,28 +139,22 @@ public class DButils {
         PreparedStatement psUpdate = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "8)Kw(M%L34G9");
+            DBConnection Connection = new DBConnection();
+            connection = Connection.getConnection();
             psUpdate = connection.prepareStatement("UPDATE task SET `check` = ? WHERE task_id = ?");
             psUpdate.setString(1, completed);
             psUpdate.setInt(2, taskId);
             psUpdate.executeUpdate();
-            System.out.println("Check column updated");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (psUpdate != null) {
-                try {
-                    psUpdate.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                try {psUpdate.close();}
+                catch (SQLException e) {e.printStackTrace();}
             }
             if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
+                try {connection.close();}
+                catch (SQLException e){e.printStackTrace();}
             }
         }
     }
@@ -196,7 +164,8 @@ public class DButils {
         PreparedStatement psCheckUserExists = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "8)Kw(M%L34G9");
+            DBConnection Connection = new DBConnection();
+            connection = Connection.getConnection();
             psCheckUserExists = connection.prepareStatement("SELECT * FROM task WHERE username = ?");
             psCheckUserExists.setString(1, username);
 
@@ -206,23 +175,16 @@ public class DButils {
             psInsert.setString(3, description);
             psInsert.setString(4, time);
             psInsert.executeUpdate();
-            System.out.println("Task added");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (psCheckUserExists != null) {
-                try {
-                    psCheckUserExists.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                try {psCheckUserExists.close();}
+                catch (SQLException e) {e.printStackTrace();}
             }
             if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
+                try {connection.close();}
+                catch (SQLException e){e.printStackTrace();}
             }
         }
     }
@@ -232,32 +194,26 @@ public class DButils {
         PreparedStatement psDeleteTask = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "8)Kw(M%L34G9");
+            DBConnection Connection = new DBConnection();
+            connection = Connection.getConnection();
             psDeleteTask = connection.prepareStatement("DELETE FROM task WHERE username = ? AND task_id = ?");
             psDeleteTask.setString(1, username);
             psDeleteTask.setInt(2, taskId);
             int rowsAffected = psDeleteTask.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("Task deleted");
-            } else {
-                System.out.println("Task not found");
-            }
+            
+            if (rowsAffected > 0) {System.out.println("Task deleted");}
+            else {System.out.println("Task not found");}
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (psDeleteTask != null) {
-                try {
-                    psDeleteTask.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                try {psDeleteTask.close();}
+                catch (SQLException e) {e.printStackTrace();}
             }
             if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
+                try {connection.close();}
+                catch (SQLException e){e.printStackTrace();}
             }
         }
     }

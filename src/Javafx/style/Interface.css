@@ -6,9 +6,16 @@
     -fx-text-fill: black;
 }
 
+.thumb {-fx-padding: 20px}
+
+.root {
+    -fx-background-color: #FCFCFC;
+    -fx-background-radius: 10;
+}
+
 .TodoPage {
     -fx-background-color: #FCFCFC;
-    -fx-background-radius: 30;
+    -fx-background-radius: 15;
 }
 
 .user {
@@ -26,7 +33,7 @@
     -fx-border-color: transparent;
 }
 
-.pass:focused, .user:focused {
+.pass:focused, .userName:focused {
     -fx-border-color: #518AFF;
 }
 
@@ -47,13 +54,25 @@
 }
 
 .MainPane {
-    -fx-background-color: linear-gradient(to bottom left, #518AFF, #518AFF);
+    -fx-background-color: linear-gradient(to bottom left, #518AFF, #28B8FF);
+    -fx-background-radius: 10 0 0 10;
 }
 
-.unchecked {
-    -fx-background-color: #ffffff; -fx-border-color: transparent; -fx-border-radius: 10px; -fx-padding: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-background-radius: 10;
+.unchecked, .checked {
+    -fx-border-color: transparent;
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    -fx-background-radius: 10;
 }
 
 .checked {
-    -fx-background-color: #C2C2C2; -fx-border-color: transparent; -fx-border-radius: 10px; -fx-padding: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+    -fx-background-radius: 10;
 }
+
+.unchecked {-fx-background-color: #ffffff;}
+.checked {-fx-background-color: #C2C2C2;}

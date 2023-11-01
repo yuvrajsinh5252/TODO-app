@@ -1,12 +1,8 @@
 package Javafx;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.HashMap;
-
+import Javafx.Connection.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -21,14 +17,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class updateui {
+public class UpdateUI {
     public static void UpdateAddItemFXML (ActionEvent event, String username) {
         Connection connection = null;
         PreparedStatement psCheckUserExists = null;
         ResultSet rs = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "8)Kw(M%L34G9");
+            DBConnection Connection = new DBConnection();
+            connection = Connection.getConnection();
             psCheckUserExists = connection.prepareStatement("SELECT * FROM task WHERE username = ?");
             psCheckUserExists.setString(1, username);
             rs = psCheckUserExists.executeQuery();
@@ -74,7 +71,8 @@ public class updateui {
                     ImageView thumb = new ImageView();
                     check.setId("check" + " " + rs.getString("task_id"));
                     thumb.setId("thumb" + " " + rs.getString("task_id"));
-                    System.out.println(thumb.getId());
+                    thumb.getStyleClass().add("thumb");
+                    check.getStyleClass().add("check");
 
                     if (getAllCheck.get(rs.getString("task_id")) != null) {
                         check.setImage(new Image("Javafx/Assets/Check.png"));
@@ -84,10 +82,9 @@ public class updateui {
                         check.setImage(new Image("Javafx/Assets/Uncheck.png"));
                         rootThumb.getStyleClass().add("unchecked");
                     }
-                    thumb.setImage(new Image("Javafx/Assets/Thumb.png"));
-                    thumb.getStyleClass().add("thumb");
-                    check.getStyleClass().add("check");
 
+                    thumb.setImage(new Image("Javafx/Assets/Thumb.png"));
+                    
                     check.setFitHeight(40);
                     check.setFitWidth(40);
                     thumb.setFitHeight(40);
@@ -100,18 +97,14 @@ public class updateui {
 
                     checkBox.getChildren().add(check);
                     DeleteBox.getChildren().add(thumb);
+                    
                     checkBox.setId("checkBox");
                     DeleteBox.setId("DeleteBox");
 
                     checkBox.alignmentProperty().set(javafx.geometry.Pos.CENTER);
                     DeleteBox.alignmentProperty().set(javafx.geometry.Pos.CENTER);
 
-                    check.setStyle("-fx-padding: 20px");
-
-                    rootThumb.getChildren().add(data);
-                    rootThumb.getChildren().add(checkBox);
-                    rootThumb.getChildren().add(DeleteBox);
-
+                    rootThumb.getChildren().addAll(data, checkBox, DeleteBox);
                     Vbox.getChildren().add(rootThumb);
                 }
 
@@ -148,9 +141,7 @@ public class updateui {
                         }
                     }
 
-                    if (Vbox.getChildren().isEmpty()) {
-                        scroll.setVisible(false);
-                    }
+                    if (Vbox.getChildren().isEmpty()) {scroll.setVisible(false);}
                 });
 
                 scroll.setHbarPolicy(ScrollBarPolicy.NEVER);
@@ -159,6 +150,7 @@ public class updateui {
                 scroll.setContent(Vbox);
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
                 stage.setScene(scene);
                 stage.show();
             } else {
@@ -173,34 +165,24 @@ public class updateui {
 
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
                 stage.setScene(scene);
                 stage.show();
-
-                System.out.println("No tasks");
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
+                try {rs.close();} 
+                catch (SQLException e){e.printStackTrace();}
             }
             if (psCheckUserExists != null) {
-                try {
-                    psCheckUserExists.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                try {psCheckUserExists.close();}
+                catch (SQLException e) {e.printStackTrace();}
             }
             if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
+                try {connection.close();}
+                catch (SQLException e){e.printStackTrace();}
             }
         }
     }

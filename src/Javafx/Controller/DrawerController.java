@@ -21,7 +21,7 @@ public class DrawerController implements Initializable {
     private JFXButton logout;
 
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
+    public void initialize(URL location, ResourceBundle resources) {
         logout.setOnAction(ActionEvent -> {
             DButils.changeScene(ActionEvent, "view/Interface.fxml", "Logout", null);
         });

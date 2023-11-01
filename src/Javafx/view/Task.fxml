@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,15 +12,11 @@
 
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" styleClass="TodoPage" stylesheets="@../style/Interface.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Javafx.Controller.TaskController">
    <children>
-      <TextField fx:id="TaskText" layoutX="63.0" layoutY="213.0" prefHeight="30.0" prefWidth="225.0" promptText="Task" styleClass="pass" stylesheets="@../style/Interface.css">
+      <TextField fx:id="TaskText" layoutX="63.0" layoutY="202.0" prefHeight="30.0" prefWidth="225.0" promptText="Task" styleClass="pass" stylesheets="@../style/Interface.css">
          <font>
             <Font size="15.0" />
          </font></TextField>
       <TextField fx:id="description" layoutX="63.0" layoutY="275.0" prefHeight="30.0" prefWidth="225.0" promptText="Short Description" styleClass="pass" stylesheets="@../style/Interface.css">
-         <font>
-            <Font size="15.0" />
-         </font></TextField>
-      <TextField fx:id="time" layoutX="63.0" layoutY="341.0" prefHeight="30.0" prefWidth="225.0" promptText="Date &amp; Time" styleClass="pass" stylesheets="@../style/Interface.css">
          <font>
             <Font size="15.0" />
          </font></TextField>
@@ -33,7 +30,7 @@
             <Font size="16.0" />
          </font></JFXButton>
       <Label fx:id="UserTask" layoutX="20.0" layoutY="20.0" styleClass="UserTask" text="Label" visible="false" />
-      <JFXButton fx:id="BackTask" layoutX="14.0" layoutY="16.0" prefHeight="54.0" prefWidth="69.0" style="-fx-background-color: transparetn;">
+      <JFXButton fx:id="BackTask" layoutX="14.0" layoutY="16.0" prefHeight="54.0" prefWidth="69.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="47.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -45,5 +42,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <DatePicker fx:id="time" layoutX="63.0" layoutY="356.0" prefWidth="225.0" promptText="DD/MM/YYYY" styleClass="pass" stylesheets="@../style/Interface.css" />
    </children>
 </AnchorPane>

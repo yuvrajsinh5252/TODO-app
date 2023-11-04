@@ -22,7 +22,7 @@ public class DrawerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        logout.setOnAction(ActionEvent -> {
+        this.logout.setOnAction(ActionEvent -> {
             DButils.changeScene(ActionEvent, "view/Interface.fxml", "Logout", null);
         });
     }

@@ -30,21 +30,21 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        LoginButton.setOnAction(new EventHandler<ActionEvent>() {
+        this.LoginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DButils.LoginUser(event, LoginUsername.getText(), LoginPassword.getText());
             }
         });
 
-        SignUpBtn.setOnAction(new EventHandler<ActionEvent>() {
+        this.SignUpBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DButils.changeScene(event, "view/SignUp.fxml", "Sign Up", null);
             }
         });
 
-        Close.setOnMouseClicked(event -> {
+        this.Close.setOnMouseClicked(event -> {
             System.exit(0);
         });
     }

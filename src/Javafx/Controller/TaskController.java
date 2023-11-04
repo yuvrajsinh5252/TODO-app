@@ -39,20 +39,24 @@ public class TaskController implements Initializable {
 
     @Override
     public void initialize(URL loaction, ResourceBundle resources) {
-        SaveBtn.setOnAction(new EventHandler<ActionEvent>() {
+        this.SaveBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 String username = ((Label) root.lookup(".UserTask")).getText();
                 UserTask.setText(username);
 
-                if (!TaskText.getText().isEmpty() && !description.getText().isEmpty() && time.getValue() != null) {
+                if (
+                    !TaskText.getText().isEmpty() &&
+                    !description.getText().isEmpty() &&
+                    time.getValue() != null
+                ) {
                     DButils.SaveToDB(event, username, TaskText.getText(), description.getText(), time.getValue().toString());
                     UpdateUI.UpdateAddItemFXML(event, username);
                 }
             }
         });
 
-        BackTask.setOnAction(new EventHandler<ActionEvent>() {
+        this.BackTask.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 String username = ((Label) root.lookup(".UserTask")).getText();

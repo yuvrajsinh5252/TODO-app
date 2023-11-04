@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -38,33 +39,32 @@ public class AddItemController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        HamburgerSlideCloseTransition transition = new HamburgerSlideCloseTransition(hamburger);
+        HamburgerSlideCloseTransition transition = new HamburgerSlideCloseTransition(this.hamburger);
         transition.setRate(-1);
-        hamburger.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, (e) -> {
+        this.hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
             transition.setRate(transition.getRate() * -1);
             transition.play();
 
             try {
                 VBox box = FXMLLoader.load(getClass().getResource("../view/Drawer.fxml"));
-                drawer.setSidePane(box);
+                this.drawer.setSidePane(box);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
 
-            if (drawer.isOpened()) {
-                drawer.close();
+            if (this.drawer.isOpened()) {
+                this.drawer.close();
                 PauseTransition delay = new PauseTransition(Duration.seconds(0.5));
-                delay.setOnFinished(event -> drawer.setVisible(false));
+                delay.setOnFinished(event -> this.drawer.setVisible(false));
                 delay.play();
             } else {
-                drawer.setVisible(true);
-                drawer.open();
+                this.drawer.setVisible(true);
+                this.drawer.open();
             }
         });
 
-        Additems.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, (e) -> {
-            System.out.println("Add items");
-            EmptyTaskImage.setVisible(false);
+        this.Additems.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
+            this.EmptyTaskImage.setVisible(false);
             try {
                 
                 AnchorPane pane = FXMLLoader.load(getClass().getResource("../view/Task.fxml"));
@@ -78,7 +78,7 @@ public class AddItemController implements Initializable {
                 rootTransition.setCycleCount(1);
                 rootTransition.setAutoReverse(true);
                 rootTransition.play();
-                root.getChildren().setAll(pane);
+                this.root.getChildren().setAll(pane);
 
             } catch (Exception ex) {
                 System.out.println(ex);

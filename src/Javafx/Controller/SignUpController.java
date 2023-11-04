@@ -2,7 +2,6 @@ package Javafx.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import Javafx.DButils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,8 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class SignUpController implements Initializable {
-
-        @FXML
+    @FXML
     private ResourceBundle resources;
 
     @FXML
@@ -42,10 +40,12 @@ public class SignUpController implements Initializable {
 
     @Override
     public void initialize(URL loaction, ResourceBundle resources) {
-        SignupButton.setOnAction(new EventHandler<ActionEvent>() {
+        this.SignupButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (!SignupUsername.getText().trim().isEmpty() && !SignupPassword.getText().trim().isEmpty()) {
+                if (!SignupUsername.getText().trim().isEmpty() 
+                &&  !SignupPassword.getText().trim().isEmpty()
+                ) {
                     if (SignupPassword.getText().equals(signupConf.getText())) {
                         DButils.SignUpUser(event, SignupUsername.getText(), SignupPassword.getText());
                     } else {
@@ -54,13 +54,15 @@ public class SignUpController implements Initializable {
                         alert.showAndWait();
                     }
                 } else {
-                    System.out.println("Error: Empty fields");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Empty Fields");
+                    alert.showAndWait();
                 }
                 
             }
         });
 
-        LoginButton.setOnAction(new EventHandler<ActionEvent>() {
+        this.LoginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DButils.changeScene(event, "View/Interface.fxml", "Login", null);

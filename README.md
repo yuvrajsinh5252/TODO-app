@@ -1,18 +1,33 @@
-## Getting Started
+# Todo App
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+The Todo App is a simple JavaFX-based application that helps you manage your tasks and to-dos. With this app, you can easily add, delete, and mark tasks as completed.
 
-## Folder Structure
+## Features
 
-The workspace contains two folders by default, where:
+- **Add Task**: Create new tasks with titles and descriptions.
+- **Delete Task**: Remove tasks you no longer need.
+- **Mark as Completed**: Keep track of completed tasks.
+- **View**: Easily view tasks by status (All, Completed, Incomplete).
+- **Data Persistence**: Your tasks are automatically saved to a local database.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Installation
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+1. Clone the repository: `git clone https://github.com/yuvrajsinh5252/TODO-app`  
+2. Open the project in your preferred Java IDE (e.g., IntelliJ IDEA, Eclipse).
+3. This Project requires no build tools, only you need to add the required dependencies to your project 
+4. Build and run the application.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Future Improvements 
 
-## Dependency Management
+- Edit the task by double clicking it.
+- Filtering the task
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Contributing
+
+We welcome contributions to improve this project. If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`.
+3. Make your changes and commit them: `git commit -m 'Description of changes'`.
+4. Push to your fork: `git push origin feature-name`.
+5. Create a pull request.

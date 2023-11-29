@@ -2,7 +2,12 @@
 
 The Todo App is a simple JavaFX-based application that helps you manage your tasks and to-dos. With this app, you can easily add, delete, and mark tasks as completed.
 
-![plot](<src/Javafx/Assets/Screenshot 2023-11-03 101205.png>)
+<div>
+    <p align="center" >
+        <img src = "src/Javafx/Assets/mainPage.png" width="200" height="300" >
+        <img src = "src/Javafx/Assets/example.png" width="200" height="300" >
+    </p>
+</div>
 
 ## Features
 
@@ -14,7 +19,12 @@ The Todo App is a simple JavaFX-based application that helps you manage your tas
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/yuvrajsinh5252/TODO-app`  
+1. Clone the repository: 
+
+    ```git clone
+       https://github.com/yuvrajsinh5252/TODO-app
+    ```
+
 2. Open the project in your preferred Java IDE (e.g., IntelliJ IDEA, Eclipse).
 3. This Project requires no build tools, only you need to add the required dependencies to your project 
 4. Build and run the application.

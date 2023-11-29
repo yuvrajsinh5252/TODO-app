@@ -2,12 +2,10 @@
 
 The Todo App is a simple JavaFX-based application that helps you manage your tasks and to-dos. With this app, you can easily add, delete, and mark tasks as completed.
 
-<div>
-    <p align="center" >
-        <img src = "src/Javafx/Assets/mainPage.png" width="200" height="300" >
-        <img src = "src/Javafx/Assets/example.png" width="200" height="300" >
-    </p>
-</div>
+<p align="center" >
+    <img src = "src/Javafx/Assets/mainPage.png" width="200" height="300" >
+    <img src = "src/Javafx/Assets/example.png" width="200" height="300" >
+</p>
 
 ## Features
 

@@ -18,17 +18,19 @@ The Todo App is a simple JavaFX-based application that helps you manage your tas
 
 ## Installation
 
-1. Clone the repository: 
+1. Clone the repository:
 
     ```git clone
        https://github.com/yuvrajsinh5252/TODO-app
     ```
 
 2. Open the project in your preferred Java IDE (e.g., IntelliJ IDEA, Eclipse).
-3. This Project requires no build tools, only you need to add the required dependencies to your project 
+3. This Project requires no build tools, only you need to add the required dependencies to your project
+4. change the database URL in the `DatabaseConnection.java` file to your local database URL.
+5. change the require path in the .vscode file to your local path.
 4. Build and run the application.
 
-## Future Improvements 
+## Future Improvements
 
 - Edit the task by double clicking it.
 - Filtering the task

@@ -4,8 +4,11 @@ The Todo App is a simple JavaFX-based application that helps you manage your tas
 
 <p align="center">
     <img src="https://github.com/user-attachments/assets/f2970a19-d7ff-419f-a79c-d55b71dc700d" height="300">&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/66491b36-ab38-4118-b8b0-1b3a939171aa" width="200" height="300">&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/d68b498a-b601-4df6-9bbf-78e14297205c" width="200" height="300">&nbsp;&nbsp;&nbsp;&nbsp;
+    <div align="center">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/66491b36-ab38-4118-b8b0-1b3a939171aa" width="200" height="300"> &nbsp;&nbsp;&nbsp;&nbsp; 
+        <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/d68b498a-b601-4df6-9bbf-78e14297205c" width="200" height="300"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
 </p>
 
 ## Features

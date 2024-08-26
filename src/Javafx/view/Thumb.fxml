@@ -15,7 +15,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="description" prefHeight="23.0" prefWidth="320.0" text="Chapter-1, 2, 4 and something">
+      <Label fx:id="description" prefHeight="23.0" prefWidth="320.0" text="Chapter-1, 2, 4 something like that...">
          <padding>
             <Insets left="15.0" />
          </padding>

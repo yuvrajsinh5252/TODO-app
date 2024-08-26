@@ -45,12 +45,11 @@ public class TaskController implements Initializable {
                 String username = ((Label) root.lookup(".UserTask")).getText();
                 UserTask.setText(username);
 
-                if (
-                    !TaskText.getText().isEmpty() &&
-                    !description.getText().isEmpty() &&
-                    time.getValue() != null
-                ) {
-                    DButils.SaveToDB(event, username, TaskText.getText(), description.getText(), time.getValue().toString());
+                if (!TaskText.getText().isEmpty() &&
+                        !description.getText().isEmpty() &&
+                        time.getValue() != null) {
+                    DButils.SaveToDB(event, username, TaskText.getText(), description.getText(),
+                            time.getValue().toString());
                     UpdateUI.UpdateAddItemFXML(event, username);
                 }
             }

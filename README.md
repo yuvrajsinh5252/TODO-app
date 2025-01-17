@@ -1,6 +1,6 @@
 # 📝 Todo App
 
-A modern, feature-rich task management application built with JavaFX that helps you stay organized and productive.
+A simple JavaFX-based Todo application that helps you manage your tasks and to-dos. With this app, you can easily add, delete, and mark tasks as completed.
 
 <p align="center">
     <img src="https://github.com/user-attachments/assets/f2970a19-d7ff-419f-a79c-d55b71dc700d" height="300" alt="Todo App Main Screen" style="border-radius: 10px;">

@@ -162,7 +162,7 @@ public class UpdateUI {
                             // Enable/disable the save button based on the input
                             Node saveButton = dialog.getDialogPane().lookupButton(saveButtonType);
                             saveButton.setDisable(true);
-                            descriptionTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+                            descriptionTextField.textProperty().addListener((_, _, newValue) -> {
                                 saveButton.setDisable(newValue.trim().isEmpty());
                             });
 

@@ -44,7 +44,7 @@ public class LoginController implements Initializable {
             }
         });
 
-        this.Close.setOnMouseClicked(event -> {
+        this.Close.setOnMouseClicked(_ -> {
             System.exit(0);
         });
     }

@@ -41,7 +41,7 @@ public class AddItemController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         HamburgerSlideCloseTransition transition = new HamburgerSlideCloseTransition(this.hamburger);
         transition.setRate(-1);
-        this.hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
+        this.hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (_) -> {
             transition.setRate(transition.getRate() * -1);
             transition.play();
 
@@ -55,7 +55,7 @@ public class AddItemController implements Initializable {
             if (this.drawer.isOpened()) {
                 this.drawer.close();
                 PauseTransition delay = new PauseTransition(Duration.seconds(0.5));
-                delay.setOnFinished(event -> this.drawer.setVisible(false));
+                delay.setOnFinished(_ -> this.drawer.setVisible(false));
                 delay.play();
             } else {
                 this.drawer.setVisible(true);
@@ -63,16 +63,16 @@ public class AddItemController implements Initializable {
             }
         });
 
-        this.Additems.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
+        this.Additems.addEventHandler(MouseEvent.MOUSE_CLICKED, (_) -> {
             this.EmptyTaskImage.setVisible(false);
             try {
-                
+
                 AnchorPane pane = FXMLLoader.load(getClass().getResource("../view/Task.fxml"));
                 FadeTransition rootTransition = new FadeTransition(Duration.millis(1000), pane);
-                
+
                 Label user = (Label) pane.lookup(".UserTask");
                 user.setText(((Label) root.lookup(".user")).getText());
-               
+
                 rootTransition.setFromValue(0.0);
                 rootTransition.setToValue(1.0);
                 rootTransition.setCycleCount(1);

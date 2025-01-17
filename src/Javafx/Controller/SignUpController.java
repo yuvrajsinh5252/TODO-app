@@ -43,7 +43,7 @@ public class SignUpController implements Initializable {
         this.SignupButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (!SignupUsername.getText().trim().isEmpty() 
+                if (!SignupUsername.getText().trim().isEmpty()
                 &&  !SignupPassword.getText().trim().isEmpty()
                 ) {
                     if (SignupPassword.getText().equals(signupConf.getText())) {
@@ -58,7 +58,7 @@ public class SignUpController implements Initializable {
                     alert.setContentText("Empty Fields");
                     alert.showAndWait();
                 }
-                
+
             }
         });
 
@@ -69,9 +69,9 @@ public class SignUpController implements Initializable {
             }
         });
 
-        Close.setOnMouseClicked(event -> {
+        Close.setOnMouseClicked(_ -> {
             System.exit(0);
         });
     }
-    
+
 }

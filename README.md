@@ -1,50 +1,81 @@
-# Todo App
+# 📝 Todo App
 
-The Todo App is a simple JavaFX-based application that helps you manage your tasks and to-dos. With this app, you can easily add, delete, and mark tasks as completed.
+A modern, feature-rich task management application built with JavaFX that helps you stay organized and productive.
 
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/f2970a19-d7ff-419f-a79c-d55b71dc700d" height="300">&nbsp;&nbsp;&nbsp;&nbsp;
-    <div align="center">
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/66491b36-ab38-4118-b8b0-1b3a939171aa" width="200" height="300"> &nbsp;&nbsp;&nbsp;&nbsp; 
-        <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/d68b498a-b601-4df6-9bbf-78e14297205c" width="200" height="300"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
+    <img src="https://github.com/user-attachments/assets/f2970a19-d7ff-419f-a79c-d55b71dc700d" height="300" alt="Todo App Main Screen" style="border-radius: 10px;">
 </p>
 
-## Features
+<div align="center">
+    <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/66491b36-ab38-4118-b8b0-1b3a939171aa" width="200" height="300" alt="App Screenshot 1" style="border-radius: 10px;">
+    <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/d68b498a-b601-4df6-9bbf-78e14297205c" width="200" height="300" alt="App Screenshot 2" style="border-radius: 10px;">
+</div>
 
-- **Add Task** : Create new tasks with titles and descriptions.
-- **Delete Task** : Remove tasks you no longer need.
-- **Mark as Completed** : Keep track of completed tasks.
-- **Edit Task** : Update task, titles and descriptions.
-- **View**: Easily view tasks by status (All, Completed, Incomplete).
-- **Data Persistence** : Your tasks are automatically saved to a local database.
+## ✨ Features
 
-## Installation
+- 📌 **Task Management**
 
-1. Clone the repository:
+  - Add new tasks with titles and descriptions
+  - Edit existing tasks
+  - Delete unwanted tasks
+  - Mark tasks as complete/incomplete
+  - Clean and intuitive user interface
 
-   ```git clone
-      https://github.com/yuvrajsinh5252/TODO-app
+- 💾 **Data Persistence**
+  - Automatic saving to local database
+  - Reliable data storage
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Java Development Kit (JDK) 11 or higher
+- MySQL Database
+- Your favorite Java IDE
+
+### Installation
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/yuvrajsinh5252/TODO-app
    ```
 
-2. Open the project in your preferred Java IDE (e.g., IntelliJ IDEA, Eclipse).
-3. This Project requires no build tools, only you need to add the required dependencies to your project
-4. change the database URL in the `DatabaseConnection.java` file to your local database URL.
-5. change the require path in the .vscode file to your local path.
-6. Build and run the application.
+2. Dependencies Required
 
-## Future Improvements
+   - JavaFX
+   - JFoenix (Material Design library)
+   - MySQL Connector
 
-- **Task Reminders** : Set reminders for important tasks to ensure you never miss a deadline.
-- **Task Prioritization** : Prioritize your tasks by assigning them different levels of importance or urgency.
+3. Configure the Database
 
-## Contributing
+   - Open `DBConnection.java`
+   - Update the database password to match your local MySQL setup
 
-We welcome contributions to improve this project. If you'd like to contribute, please follow these steps:
+4. IDE Setup
+   - Import the project into your IDE
+   - Update the dependencies paths in `.vscode` settings
+   - Build and run the application
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`.
-3. Make your changes and commit them: `git commit -m 'Description of changes'`.
-4. Push to your fork: `git push origin feature-name`.
-5. Create a pull request.
+## 🛠️ Technical Details
+
+- **Framework**: JavaFX
+- **Database**: MySQL
+- **UI Library**: JFoenix
+- **Architecture**: MVC Pattern
+
+## 🔮 Future Plans & Enhancements
+
+- [ ] Task Reminders and Notifications
+- [ ] Priority Levels for Tasks
+- [ ] Task Categories and Tags
+
+## 🤝 Contributing
+
+We love contributions! Here's how you can help:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request

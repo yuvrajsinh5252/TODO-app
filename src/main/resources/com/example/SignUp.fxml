@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="392.0" prefWidth="600.0" styleClass="root" stylesheets="@../style/Interface.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.SignUpController">
+   <children>
+      <Pane prefHeight="393.0" prefWidth="300.0" styleClass="MainPane" stylesheets="@../style/Interface.css">
+         <children>
+            <Label layoutX="40.0" layoutY="141.0" prefHeight="85.0" prefWidth="221.0" text="TODO LIST" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="214.0" prefHeight="46.0" prefWidth="205.0" text="List yout task to get you more productive" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Label layoutX="347.0" layoutY="53.0" text="SIGN UP">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="SignupPassword" layoutX="347.0" layoutY="161.0" prefHeight="35.0" prefWidth="200.0" promptText="Password" styleClass="pass">
+         <font>
+            <Font size="15.0" />
+         </font></PasswordField>
+      <TextField fx:id="SignupUsername" layoutX="347.0" layoutY="102.0" prefHeight="35.0" prefWidth="200.0" promptText="User Name" styleClass="userName" stylesheets="@../style/Interface.css">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Button fx:id="SignupButton" layoutX="397.0" layoutY="295.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" styleClass="LoginBtn" stylesheets="@../style/Interface.css" text="SIGN UP" textAlignment="JUSTIFY">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Pane layoutX="563.0" prefHeight="39.0" prefWidth="37.0">
+         <children>
+            <ImageView fx:id="Close" fitHeight="35.0" fitWidth="84.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/png-transparent-computer-icons-button-close-angle-rectangle-logo-thumbnail-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Label layoutX="352.0" layoutY="361.0" prefHeight="17.0" prefWidth="133.0" text="Already have an account," />
+      <Button fx:id="LoginButton" layoutX="479.0" layoutY="356.0" mnemonicParsing="false" styleClass="SginUpBtn" stylesheets="@../style/Interface.css" text="Sign In">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <PasswordField fx:id="signupConf" layoutX="347.0" layoutY="222.0" prefHeight="35.0" prefWidth="200.0" promptText="Confirm Password" styleClass="ConfirmPass" stylesheets="@../style/Interface.css">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+   </children>
+</AnchorPane>

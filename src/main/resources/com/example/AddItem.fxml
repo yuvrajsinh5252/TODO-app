@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" styleClass="TodoPage" stylesheets="@../style/Interface.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.AddItemController">
+   <children>
+      <Label layoutX="268.0" layoutY="9.0" prefHeight="36.0" prefWidth="71.0" text="Todo" textAlignment="JUSTIFY" textFill="#707070">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="EmptyTaskImage" fitHeight="200.0" fitWidth="200.0" layoutX="75.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Screenshot_2023-10-29_130245-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Additems" fitHeight="125.0" fitWidth="71.0" layoutX="140.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/8377219.png" />
+         </image>
+      </ImageView>
+      <JFXHamburger fx:id="hamburger" layoutX="17.0" layoutY="17.0" />
+      <Label fx:id="user" alignment="CENTER" layoutX="66.0" layoutY="11.0" prefHeight="20.0" prefWidth="109.0" styleClass="user" stylesheets="@../style/Interface.css" text="Username" />
+      <ScrollPane fx:id="TaskScroll" layoutY="61.0" prefHeight="365.0" prefWidth="350.0" styleClass="scroll" stylesheets="@../style/Interface.css" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="190.0" direction="RIGHT" layoutX="182.0" prefHeight="550.0" prefWidth="172.0" visible="false" />
+   </children>
+</AnchorPane>

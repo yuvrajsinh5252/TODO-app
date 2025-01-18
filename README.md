@@ -31,6 +31,7 @@ A simple JavaFX-based Todo application that helps you manage your tasks and to-d
 
 - Java Development Kit (JDK) 11 or higher
 - MySQL Database
+- Maven 3.6 or higher
 - Your favorite Java IDE
 
 ### Installation
@@ -41,24 +42,26 @@ A simple JavaFX-based Todo application that helps you manage your tasks and to-d
    git clone https://github.com/yuvrajsinh5252/TODO-app
    ```
 
-2. Dependencies Required
+2. Navigate to project directory and build
 
-   - JavaFX
-   - JFoenix (Material Design library)
-   - MySQL Connector
+   ```bash
+      cd todo-app
+      mvn clean install
+   ```
 
 3. Configure the Database
 
    - Open `DBConnection.java`
    - Update the database password to match your local MySQL setup
 
-4. IDE Setup
-   - Import the project into your IDE
-   - Update the dependencies paths in `.vscode` settings
-   - Build and run the application
+4. Run the application
+   ```bash
+      mvn javafx:run
+   ```
 
 ## 🛠️ Technical Details
 
+- **Build Tool**: Apache Maven
 - **Framework**: JavaFX
 - **Database**: MySQL
 - **UI Library**: JFoenix

@@ -28,9 +28,25 @@
             <version>9.0.10</version>
         </dependency>
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>23</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>23</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.4.1</version>
+            <type>maven-plugin</type>
         </dependency>
     </dependencies>
 
@@ -39,41 +55,48 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <release>23</release>
-                </configuration>
+                <version>3.11.0</version>
+                <executions>
+                    <execution>
+                        <!-- Default configuration for running with: mvn clean javafx:run -->
+                        <id>default-cli</id>
+                        <configuration>
+                            <mainClass>com.example.App</mainClass>
+                            <launcher>todo-app</launcher>
+                            <jlinkZipName>todo-app</jlinkZipName>
+                            <jlinkImageName>todo-app</jlinkImageName>
+                            <noManPages>true</noManPages>
+                            <stripDebug>true</stripDebug>
+                            <noHeaderFiles>true</noHeaderFiles>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
-              <groupId>org.openjfx</groupId>
-              <artifactId>javafx-maven-plugin</artifactId>
-              <version>0.0.8</version>
-              <configuration>
-                  <compress>2</compress>
-                  <noHeaderFiles>true</noHeaderFiles>
-                  <stripDebug>true</stripDebug>
-                  <noManPages>true</noManPages>
-                  <launcher>todo-app</launcher>
-                  <mainClass>com.example.App</mainClass>
-                  <jlinkImageName>todo-app</jlinkImageName>
-                  <jlinkZipName>todo-app</jlinkZipName>
-              </configuration>
-          </plugin>
-          <plugin>
-                <groupId>org.panteleyev</groupId>
-                <artifactId>jpackage-maven-plugin</artifactId>
-                <version>1.6.0</version>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.example.App</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
                 <configuration>
-                    <name>TodoApp</name>
-                    <appVersion>1.0.0</appVersion>
-                    <vendor>YourCompany</vendor>
-                    <destination>target/dist</destination>
-                    <module>com.example/com.example.App</module>
-                    <runtimeImage>target/todo-app</runtimeImage>
-                    <winDirChooser>true</winDirChooser>
-                    <winMenuGroup>TodoApp</winMenuGroup>
-                    <winShortcut>true</winShortcut>
-                    <type>EXE</type>
+                    <mainClass>com.example.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>

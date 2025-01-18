@@ -2,13 +2,10 @@
 
 A simple JavaFX-based Todo application that helps you manage your tasks and to-dos. With this app, you can easily add, delete, and mark tasks as completed.
 
-<p align="center">
-    <img src="https://github.com/user-attachments/assets/f2970a19-d7ff-419f-a79c-d55b71dc700d" height="300" alt="Todo App Main Screen" style="border-radius: 10px;">
-</p>
-
 <div align="center">
-    <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/66491b36-ab38-4118-b8b0-1b3a939171aa" width="200" height="300" alt="App Screenshot 1" style="border-radius: 10px;">
-    <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/d68b498a-b601-4df6-9bbf-78e14297205c" width="200" height="300" alt="App Screenshot 2" style="border-radius: 10px;">
+   <img src="https://github.com/user-attachments/assets/f2970a19-d7ff-419f-a79c-d55b71dc700d" height="300" alt="Todo App Main Screen" style="border-radius: 10px;">
+   <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/66491b36-ab38-4118-b8b0-1b3a939171aa" height="300" alt="App Screenshot 1" style="border-radius: 10px;">
+   <img src="https://github.com/yuvrajsinh5252/TODO-app/assets/117096680/d68b498a-b601-4df6-9bbf-78e14297205c" height="300" alt="App Screenshot 2" style="border-radius: 10px;">
 </div>
 
 ## ✨ Features

@@ -34,7 +34,7 @@
          <graphic>
             <ImageView fitHeight="47.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/pngtree-back-vector-icon-png-image_470452-removebg-preview.png" />
+                  <Image url="@../assets/back2.png" />
                </image>
             </ImageView>
          </graphic>

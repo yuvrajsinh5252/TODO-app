@@ -23,7 +23,7 @@
       </ImageView>
       <ImageView fx:id="Additems" fitHeight="125.0" fitWidth="71.0" layoutX="140.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/8377219.png" />
+            <Image url="@../assets/add.png" />
          </image>
       </ImageView>
       <JFXHamburger fx:id="hamburger" layoutX="17.0" layoutY="17.0" />

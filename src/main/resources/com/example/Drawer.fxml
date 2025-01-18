@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="163.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/5e819a5ce865476b73087fd1276e7c3e.jpg" />
+            <Image url="@../assets/logo.jpg" />
          </image>
       </ImageView>
       <JFXButton fx:id="logout" prefHeight="61.0" prefWidth="171.0" style="-fx-background-color: #CFCFCF;" styleClass="logout" stylesheets="@../style/Interface.css" text="Logout">

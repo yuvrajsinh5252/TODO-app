@@ -44,7 +44,7 @@
          <children>
             <ImageView fx:id="Close" fitHeight="35.0" fitWidth="84.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/png-transparent-computer-icons-button-close-angle-rectangle-logo-thumbnail-removebg-preview.png" />
+                  <Image url="@../assets/close.png" />
                </image>
             </ImageView>
          </children>
